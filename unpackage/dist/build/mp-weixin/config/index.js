@@ -1,0 +1,1 @@
+"use strict";const e=require("../hooks/useEnv.js"),{isDev:o}=e.useEnv(),r={apiUrl:(o(),"http://v.juhe.cn"),goodsImagePrefix:o()?"/dev/goods":"/prod/goods",avatarPrefix:o()?"/dev/avatar":"/prod/avatar"};exports.globSetting=r;

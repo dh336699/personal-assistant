@@ -1,0 +1,1 @@
+<view><van-field wx:if="{{r0}}" bindchange="{{a}}" u-t="m" u-i="e4985166-0" bind:__l="__l" u-p="{{b}}"/><uni-card wx:if="{{c}}" u-s="{{['d']}}" u-i="e4985166-1" bind:__l="__l" u-p="{{f}}"><view class="uni-body">花语: {{d}}</view><view class="uni-body">花语箴言: {{e}}</view></uni-card></view>

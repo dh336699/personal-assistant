@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/navigation/navigation",
+    "pages/remaining/remaining",
+    "pages/flower/flower",
+    "pages/mbti/mbti"
+  ],
+  "usingComponents": {
+    "van-icon": "/wxcomponents/@vant/weapp/icon/index",
+    "van-field": "/wxcomponents/@vant/weapp/field/index",
+    "van-cell": "/wxcomponents/@vant/weapp/cell/index",
+    "van-cell-group": "/wxcomponents/@vant/weapp/cell-group/index",
+    "van-empty": "/wxcomponents/@vant/weapp/empty/index",
+    "van-calendar": "/wxcomponents/@vant/weapp/calendar/index",
+    "van-button": "/wxcomponents/@vant/weapp/button/index",
+    "van-collapse": "/wxcomponents/@vant/weapp/collapse/index",
+    "van-collapse-item": "/wxcomponents/@vant/weapp/collapse-item/index",
+    "van-radio": "/wxcomponents/@vant/weapp/radio/index",
+    "van-radio-group": "/wxcomponents/@vant/weapp/radio-group/index"
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
+}

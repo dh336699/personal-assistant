@@ -1,0 +1,71 @@
+{
+	"pages": [{
+		"path": "pages/navigation/navigation",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/remaining/remaining",
+		"style": {
+			"navigationBarTitleText": "假期指南",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/flower/flower",
+		"style": {
+			"navigationBarTitleText": "花语",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/mbti/mbti",
+		"style": {
+			"navigationBarTitleText": "MBTI性格测试",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/caculator/cal/cal",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}    ,{
+            "path" : "pages/caculator/result/result",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		},
+		"usingComponents": {
+			"van-icon": "/wxcomponents/@vant/weapp/icon/index",
+			"van-field": "/wxcomponents/@vant/weapp/field/index",
+			"van-cell": "/wxcomponents/@vant/weapp/cell/index",
+			"van-cell-group": "/wxcomponents/@vant/weapp/cell-group/index",
+			"van-empty": "/wxcomponents/@vant/weapp/empty/index",
+			"van-calendar": "/wxcomponents/@vant/weapp/calendar/index",
+			"van-button": "/wxcomponents/@vant/weapp/button/index",
+			"van-collapse": "/wxcomponents/@vant/weapp/collapse/index",
+			"van-collapse-item": "/wxcomponents/@vant/weapp/collapse-item/index",
+			"van-radio": "/wxcomponents/@vant/weapp/radio/index",
+			"van-radio-group": "/wxcomponents/@vant/weapp/radio-group/index",
+			"van-popup": "/wxcomponents/@vant/weapp/popup/index",
+			"van-picker": "/wxcomponents/@vant/weapp/picker/index"
+		}
+	}
+}
