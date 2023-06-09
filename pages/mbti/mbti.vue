@@ -1,5 +1,6 @@
 <template>
 	<view class="Mbti" v-if="!answers && !isEmpty(list)">
+		<view class="Mbti__tip">当前第{{current}}/{{list.length}}题</view>
 		<view class="Mbti__question">
 			{{item.question}}
 		</view>
@@ -173,6 +174,10 @@
 		height: 100vh;
 		background: white;
 		box-sizing: border-box;
+
+		&__tip {
+			margin-bottom: 20px;
+		}
 
 		&__question {
 			margin-bottom: 30px;

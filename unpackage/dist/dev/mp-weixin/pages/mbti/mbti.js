@@ -98,72 +98,74 @@ const _sfc_main = {
       return common_vendor.e({
         a: !answers.value && !common_vendor.unref(common_vendor.lodashExports.isEmpty)(list.value)
       }, !answers.value && !common_vendor.unref(common_vendor.lodashExports.isEmpty)(list.value) ? {
-        b: common_vendor.t(common_vendor.unref(item).question),
-        c: common_vendor.t(common_vendor.unref(item).answer1),
-        d: common_vendor.p({
+        b: common_vendor.t(current.value),
+        c: common_vendor.t(list.value.length),
+        d: common_vendor.t(common_vendor.unref(item).question),
+        e: common_vendor.t(common_vendor.unref(item).answer1),
+        f: common_vendor.p({
           name: common_vendor.unref(item).type1
         }),
-        e: common_vendor.t(common_vendor.unref(item).answer2),
-        f: common_vendor.p({
+        g: common_vendor.t(common_vendor.unref(item).answer2),
+        h: common_vendor.p({
           name: common_vendor.unref(item).type2
         }),
-        g: common_vendor.o((e) => onChange(e)),
-        h: common_vendor.p({
+        i: common_vendor.o((e) => onChange(e)),
+        j: common_vendor.p({
           value: common_vendor.unref(item).answers
         }),
-        i: common_vendor.p({
+        k: common_vendor.p({
           name: "arrow-left"
         }),
-        j: common_vendor.unref(showPrew),
-        k: common_vendor.o(handlePrev),
-        l: common_vendor.p({
+        l: common_vendor.unref(showPrew),
+        m: common_vendor.o(handlePrev),
+        n: common_vendor.p({
           round: true,
           type: "primary"
         }),
-        m: common_vendor.p({
+        o: common_vendor.p({
           name: "arrow"
         }),
-        n: common_vendor.o(handleNext),
-        o: common_vendor.unref(showNext),
-        p: common_vendor.p({
+        p: common_vendor.o(handleNext),
+        q: common_vendor.unref(showNext),
+        r: common_vendor.p({
           round: true,
           type: "primary"
         }),
-        q: common_vendor.unref(showSubmit),
-        r: common_vendor.o(handleSubmit),
-        s: common_vendor.p({
+        s: common_vendor.unref(showSubmit),
+        t: common_vendor.o(handleSubmit),
+        v: common_vendor.p({
           round: true,
           color: "linear-gradient(to right, #4bb0ff, #6149f6)"
         })
       } : answers.value ? {
-        v: common_vendor.t(answers.value.type),
-        w: common_vendor.t(answers.value.name),
-        x: common_vendor.t(answers.value.summary),
-        y: common_vendor.t(answers.value.characteristic),
-        z: common_vendor.t(answers.value.field),
-        A: common_vendor.t(answers.value.job),
-        B: common_vendor.p({
+        x: common_vendor.t(answers.value.type),
+        y: common_vendor.t(answers.value.name),
+        z: common_vendor.t(answers.value.summary),
+        A: common_vendor.t(answers.value.characteristic),
+        B: common_vendor.t(answers.value.field),
+        C: common_vendor.t(answers.value.job),
+        D: common_vendor.p({
           name: "replay"
         }),
-        C: common_vendor.o(handleReply),
-        D: common_vendor.p({
+        E: common_vendor.o(handleReply),
+        F: common_vendor.p({
           round: true,
           type: "primary"
         }),
-        E: common_vendor.p({
+        G: common_vendor.p({
           name: "revoke"
         }),
-        F: common_vendor.o(handlePreview),
-        G: common_vendor.p({
+        H: common_vendor.o(handlePreview),
+        I: common_vendor.p({
           round: true,
           type: "primary"
         })
       } : {
-        H: common_vendor.p({
+        J: common_vendor.p({
           description: "暂无数据"
         })
       }, {
-        t: answers.value
+        w: answers.value
       });
     };
   }
