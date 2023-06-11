@@ -2,6 +2,7 @@
 const common_vendor = require("../../common/vendor.js");
 const api_juhe = require("../../api/juhe.js");
 const store_index = require("../../store/index.js");
+const utils_utils = require("../../utils/utils.js");
 require("../../utils/http/index.js");
 require("../../utils/auth/index.js");
 require("../../enum/cacheEnum.js");
@@ -45,6 +46,7 @@ const _sfc_main = {
       return day;
     };
     common_vendor.onLoad(async () => {
+      utils_utils.msg.loading();
       if (common_vendor.lodashExports.isEmpty(store.vacation)) {
         const data = await api_juhe.getVacationList();
         store.setVacation(data.list);
@@ -60,7 +62,7 @@ const _sfc_main = {
           map.set(it, "假期");
         });
       });
-      console.log(map);
+      utils_utils.msg.hide();
     });
     return (_ctx, _cache) => {
       return common_vendor.e({
@@ -69,7 +71,7 @@ const _sfc_main = {
             a: common_vendor.t(item.tip),
             b: common_vendor.f(item.vacation, (it, k1, i1) => {
               return {
-                a: "4a7bc74a-2-" + i0 + "-" + i1 + "," + ("4a7bc74a-1-" + i0),
+                a: "5fd878ec-2-" + i0 + "-" + i1 + "," + ("5fd878ec-1-" + i0),
                 b: common_vendor.p({
                   text: it,
                   size: "small",
@@ -80,7 +82,7 @@ const _sfc_main = {
             }),
             c: common_vendor.t(item.rest),
             d: item.name,
-            e: "4a7bc74a-1-" + i0 + ",4a7bc74a-0",
+            e: "5fd878ec-1-" + i0 + ",5fd878ec-0",
             f: common_vendor.p({
               title: item.name + " " + item.holiday,
               name: item.holiday
@@ -108,5 +110,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/remaining/remaining.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/remaining/remaining.vue"]]);
 wx.createPage(MiniProgramPage);

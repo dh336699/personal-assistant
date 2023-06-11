@@ -1,33 +1,24 @@
 <template>
 	<view class="Cal">
 		<van-cell title="性别">
-			<van-radio-group :value="bodyInfo.sex.value" @change="e => bodyInfo.sex.value = e.detail"
-				direction="horizontal">
+			<van-radio-group :value="bodyInfo.sex.value" @change="e => bodyInfo.sex.value = e.detail" direction="horizontal">
 				<van-radio :name="0">男性</van-radio>
 				<van-radio :name="1" checked-color="#07c160">女性</van-radio>
 			</van-radio-group>
 		</van-cell>
 
-		<van-field :value="bodyInfo.age.value" label="年龄" type="number" required placeholder="请输入年龄"
-			@confirm="e => fieldConfirm(e, 'age')" @blur="e => fieldConfirm(e, 'age')"
-			:error-message="bodyInfo.age.error" />
+		<van-field :value="bodyInfo.age.value" label="年龄" type="number" required placeholder="请输入年龄" @confirm="e => fieldConfirm(e, 'age')" @blur="e => fieldConfirm(e, 'age')" :error-message="bodyInfo.age.error" />
 
-		<van-field :value="bodyInfo.height.value" type="number" required label="身高(cm)" placeholder="请输入身高"
-			@confirm="e => fieldConfirm(e, 'height')" @blur="e => fieldConfirm(e, 'height')"
-			:error-message="bodyInfo.height.error" />
+		<van-field :value="bodyInfo.height.value" type="number" required label="身高(cm)" placeholder="请输入身高" @confirm="e => fieldConfirm(e, 'height')" @blur="e => fieldConfirm(e, 'height')" :error-message="bodyInfo.height.error" />
 
-		<van-field :value="bodyInfo.weight.value" type="number" required label="体重(kg)" placeholder="请输入体重"
-			@confirm="e => fieldConfirm(e, 'weight')" @blur="e => fieldConfirm(e, 'weight')"
-			:error-message="bodyInfo.weight.error" />
+		<van-field :value="bodyInfo.weight.value" type="number" required label="体重(kg)" placeholder="请输入体重" @confirm="e => fieldConfirm(e, 'weight')" @blur="e => fieldConfirm(e, 'weight')" :error-message="bodyInfo.weight.error" />
 
-		<van-field :value="bodyInfo.bodyFat.value" type="number" label="体脂(%)" placeholder="请输入体脂(非必填)"
-			@confirm="e => fieldConfirm(e, 'bodyFat')" @blur="e => fieldConfirm(e, 'bodyFat')" />
+		<van-field :value="bodyInfo.bodyFat.value" type="number" label="体脂(%)" placeholder="请输入体脂(非必填)" @confirm="e => fieldConfirm(e, 'bodyFat')" @blur="e => fieldConfirm(e, 'bodyFat')" />
 
 		<view class="PickerWrapper">
 			<view class='PickerWrapper-label'>日常活动系数</view>
 			<view class='PickerWrapper-picker'>
-				<picker class='picker' @change="e => handlePicker(e, 'activeIdx')" :value="activeIdx"
-					:range="activeList" range-key='text'>
+				<picker class='picker' @change="e => handlePicker(e, 'activeIdx')" :value="activeIdx" :range="activeList" range-key='text'>
 					<view v-if="!activeIdx && activeIdx !== 0" class="picker-placeholder">
 						请选择日常活动系数
 					</view>
@@ -41,8 +32,7 @@
 		<view class="PickerWrapper">
 			<view class='PickerWrapper-label'>碳水摄入量</view>
 			<view class='PickerWrapper-picker'>
-				<picker class='picker' @change="e => handlePicker(e, 'exerciseIdx')" :value="exerciseIdx"
-					:range="exerciseList" range-key='text'>
+				<picker class='picker' @change="e => handlePicker(e, 'exerciseIdx')" :value="exerciseIdx" :range="exerciseList" range-key='text'>
 					<view v-if="!exerciseIdx && exerciseIdx !== 0" class="picker-placeholder">
 						请选择碳水摄入量
 					</view>
@@ -55,8 +45,7 @@
 		</view>
 
 		<van-cell title="目标">
-			<van-radio-group direction='horizontal' :value="bodyInfo.goal.value"
-				@change="e => bodyInfo.goal.value = e.detail">
+			<van-radio-group direction='horizontal' :value="bodyInfo.goal.value" @change="e => bodyInfo.goal.value = e.detail">
 				<van-radio :name="1">减脂</van-radio>
 				<van-radio :name="2">塑形</van-radio>
 				<van-radio :name="3">增肌</van-radio>
@@ -276,29 +265,6 @@
 		uni.navigateTo({
 			url: '../result/result'
 		})
-		// var {
-		// 	sexIdx,
-		// 	age,
-		// 	height,
-		// 	weight,
-		// 	bodyFat,
-		// 	activeIdx,
-		// 	exerciseIdx,
-		// 	goalIdx
-		// } = this.data;
-		// wx.setStorageSync("bodyInfo", JSON.stringify({
-		// 	sexIdx: unref(sexIdx),
-		// 	age: unref(age),
-		// 	height: unref(height),
-		// 	weight: unref(weight),
-		// 	bodyFat: unref(bodyFat),
-		// 	activeIdx: unref(activeIdx),
-		// 	exerciseIdx: unref(exerciseIdx),
-		// 	goalIdx: unref(goalIdx),
-		// }));
-		// wx.navigateTo({
-		// 	url: "../result/result"
-		// });
 	}
 
 	onLoad((e) => {
@@ -396,10 +362,14 @@
 		align-items: center;
 		justify-content: center;
 		width: 80%;
-	}
 
-	.button {
-		width: 80vw;
+		.button {
+			width: 100% !important;
+		}
+
+		.van-button {
+			width: 100% !important;
+		}
 	}
 
 	.Cal-tip {

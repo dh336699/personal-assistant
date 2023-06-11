@@ -1,6 +1,6 @@
 <template>
 	<view class="Mbti" v-if="!answers && !isEmpty(list)">
-		<view class="Mbti__tip">当前第{{current}}/{{list.length}}题</view>
+		<view class="Mbti__tip">当前第{{current + 1}}/{{list.length}}题</view>
 		<view class="Mbti__question">
 			{{item.question}}
 		</view>
@@ -9,12 +9,9 @@
 			<van-radio :name="item.type2">{{item.answer2}}</van-radio>
 		</van-radio-group>
 		<view class="Mbti__btns">
-			<van-button class="btn" round type="primary" v-show="showPrew" @click="handlePrev"><van-icon
-					name="arrow-left" />上一题</van-button>
-			<van-button class="btn" round type="primary" @click="handleNext" v-show="showNext">下一题<van-icon
-					name="arrow" /></van-button>
-			<van-button class="btn" round color="linear-gradient(to right, #4bb0ff, #6149f6)" v-show="showSubmit"
-				@click="handleSubmit">提交</van-button>
+			<van-button class="btn" round type="primary" v-show="showPrew" @click="handlePrev"><van-icon name="arrow-left" />上一题</van-button>
+			<van-button class="btn" round type="primary" @click="handleNext" v-show="showNext">下一题<van-icon name="arrow" /></van-button>
+			<van-button class="btn" round color="linear-gradient(to right, #4bb0ff, #6149f6)" v-show="showSubmit" @click="handleSubmit">提交</van-button>
 		</view>
 	</view>
 	<view class="Answer" v-else-if="answers">
@@ -44,10 +41,8 @@
 		</view>
 
 		<view class="Answer__btns">
-			<van-button class="btn" round type="primary" @click="handleReply"><van-icon
-					name="replay" />重新答题</van-button>
-			<van-button class="btn" round type="primary" @click="handlePreview"><van-icon
-					name="revoke" />查看答过的题</van-button>
+			<van-button class="btn" round type="primary" @click="handleReply"><van-icon name="replay" />重新答题</van-button>
+			<van-button class="btn" round type="primary" @click="handlePreview"><van-icon name="revoke" />查看答过的题</van-button>
 		</view>
 	</view>
 	<van-empty v-else description="暂无数据" />
@@ -108,11 +103,11 @@
 		list.value[unref(current)].answers = e.detail
 		console.log(list.value[unref(current)]);
 		store.setMbti(unref(list))
-		setTimeout(() => {
-			if (unref(current) < unref(list).length - 1) {
+		if (unref(current) < unref(list).length - 1) {
+			setTimeout(() => {
 				current.value += 1
-			}
-		}, 600)
+			}, 300)
+		}
 	}
 
 	const handleReply = () => {
@@ -134,6 +129,7 @@
 	}
 
 	const _initQuestion = async (init = true, reply = false) => {
+		msg.loading()
 		answers.value = null
 		current.value = 0
 		if (isEmpty(store.mbti) || reply) {
@@ -154,6 +150,7 @@
 				}
 			}
 		}
+		msg.hide()
 	}
 
 	onLoad(() => {

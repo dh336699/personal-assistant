@@ -29,7 +29,10 @@
 	} from '@/api/juhe'
 	import {
 		useStore
-	} from '@/store'
+	} from '@/store';
+	import {
+		msg
+	} from '@/utils/utils'
 
 	const flowerName = ref('');
 	const flowerDesc = ref();
@@ -38,6 +41,7 @@
 	const title = computed(() => unref(flowerDesc).cnflower + ' ' + unref(flowerDesc).enflower)
 
 	const onChange = debounce(async e => {
+		msg.loading()
 		const name = e.detail
 		if (store.flower[name]) {
 			return store.flower[name]
@@ -46,6 +50,7 @@
 		store.setFlower({
 			[name]: unref(flowerDesc)
 		})
+		msg.hide()
 	}, 1000)
 </script>
 

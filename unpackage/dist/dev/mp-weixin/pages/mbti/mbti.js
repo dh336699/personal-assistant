@@ -44,11 +44,11 @@ const _sfc_main = {
       list.value[common_vendor.unref(current)].answers = e.detail;
       console.log(list.value[common_vendor.unref(current)]);
       store.setMbti(common_vendor.unref(list));
-      setTimeout(() => {
-        if (common_vendor.unref(current) < common_vendor.unref(list).length - 1) {
+      if (common_vendor.unref(current) < common_vendor.unref(list).length - 1) {
+        setTimeout(() => {
           current.value += 1;
-        }
-      }, 600);
+        }, 300);
+      }
     };
     const handleReply = () => {
       utils_utils.msg.modal("确认清空历史记录并重新答题?", () => {
@@ -66,6 +66,7 @@ const _sfc_main = {
       store.setMbtiAnswer(res);
     };
     const _initQuestion = async (init = true, reply = false) => {
+      utils_utils.msg.loading();
       answers.value = null;
       current.value = 0;
       if (common_vendor.lodashExports.isEmpty(store.mbti) || reply) {
@@ -86,6 +87,7 @@ const _sfc_main = {
           }
         }
       }
+      utils_utils.msg.hide();
     };
     common_vendor.onLoad(() => {
       if (!common_vendor.lodashExports.isEmpty(store.mbtiAnswer)) {
@@ -98,7 +100,7 @@ const _sfc_main = {
       return common_vendor.e({
         a: !answers.value && !common_vendor.unref(common_vendor.lodashExports.isEmpty)(list.value)
       }, !answers.value && !common_vendor.unref(common_vendor.lodashExports.isEmpty)(list.value) ? {
-        b: common_vendor.t(current.value),
+        b: common_vendor.t(current.value + 1),
         c: common_vendor.t(list.value.length),
         d: common_vendor.t(common_vendor.unref(item).question),
         e: common_vendor.t(common_vendor.unref(item).answer1),
@@ -170,5 +172,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/mbti/mbti.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/mbti/mbti.vue"]]);
 wx.createPage(MiniProgramPage);

@@ -62,8 +62,11 @@
   justify-content: center;
   width: 80%;
 }
-.button {
-  width: 80vw;
+.button-wrapper .button {
+  width: 100% !important;
+}
+.button-wrapper .van-button {
+  width: 100% !important;
 }
 .Cal-tip {
   padding: 6rpx 0;

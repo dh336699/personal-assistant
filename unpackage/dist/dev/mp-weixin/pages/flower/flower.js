@@ -2,6 +2,7 @@
 const common_vendor = require("../../common/vendor.js");
 const api_juhe = require("../../api/juhe.js");
 const store_index = require("../../store/index.js");
+const utils_utils = require("../../utils/utils.js");
 require("../../utils/http/index.js");
 require("../../utils/auth/index.js");
 require("../../enum/cacheEnum.js");
@@ -27,6 +28,7 @@ const _sfc_main = {
     const store = store_index.useStore();
     const title = common_vendor.computed(() => common_vendor.unref(flowerDesc).cnflower + " " + common_vendor.unref(flowerDesc).enflower);
     const onChange = common_vendor.lodashExports.debounce(async (e) => {
+      utils_utils.msg.loading();
       const name = e.detail;
       if (store.flower[name]) {
         return store.flower[name];
@@ -35,6 +37,7 @@ const _sfc_main = {
       store.setFlower({
         [name]: common_vendor.unref(flowerDesc)
       });
+      utils_utils.msg.hide();
     }, 1e3);
     return (_ctx, _cache) => {
       return common_vendor.e({
@@ -55,5 +58,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/flower/flower.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/flower/flower.vue"]]);
 wx.createPage(MiniProgramPage);

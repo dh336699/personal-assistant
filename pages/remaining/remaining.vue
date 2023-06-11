@@ -1,11 +1,9 @@
 <template>
 	<view>
 		<van-collapse :value="activeNames" @change="e => activeNames = e.detail">
-			<van-collapse-item v-for="item in list" :title="item.name + ' ' + item.holiday" :name="item.holiday"
-				:key="item.name">
+			<van-collapse-item v-for="item in list" :title="item.name + ' ' + item.holiday" :name="item.holiday" :key="item.name">
 				<p>注意：{{ item.tip }}</p>
-				<div class="holiday">假日：<p v-for="it in item.vacation" :key="it"
-						style="margin-right: 4px;margin-bottom: 4px;white-space: nowrap;">
+				<div class="holiday">假日：<p v-for="it in item.vacation" :key="it" style="margin-right: 4px;margin-bottom: 4px;white-space: nowrap;">
 						<uni-tag :text="it" size='small' type="primary" />
 					</p>
 				</div>
@@ -39,6 +37,9 @@
 		isEmpty
 	} from 'lodash';
 	import dayjs from 'dayjs';
+	import {
+		msg
+	} from '@/utils/utils'
 
 	const show = ref(false)
 	const minDate = ref(new Date(2000, 0, 1).getTime())
@@ -67,6 +68,7 @@
 		return day;
 	}
 	onLoad(async () => {
+		msg.loading()
 		if (isEmpty(store.vacation)) {
 			const data = await Api.getVacationList()
 			store.setVacation(data.list)
@@ -80,7 +82,7 @@
 				map.set(it, '假期')
 			})
 		})
-		console.log(map);
+		msg.hide()
 	})
 </script>
 
