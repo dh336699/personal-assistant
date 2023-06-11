@@ -71,17 +71,18 @@
 		msg.loading()
 		if (isEmpty(store.vacation)) {
 			const data = await Api.getVacationList()
+			data?.list.forEach(item => {
+				map.set(item.holiday, item.name)
+				item.vacation = (item.vacation) ? item.vacation?.split(
+					'|') : []
+				item.vacation.forEach(it => {
+					map.set(it, '假期')
+				})
+			})
+			list.value = data.list
 			store.setVacation(data.list)
 		}
 		list.value = store.vacation
-		list.value.forEach(item => {
-			map.set(item.holiday, item.name)
-			item.vacation = (item.vacation) ? item.vacation?.split(
-				'|') : []
-			item.vacation.forEach(it => {
-				map.set(it, '假期')
-			})
-		})
 		msg.hide()
 	})
 </script>

@@ -191,7 +191,7 @@ const _sfc_main = {
       store.setBodyInfos({
         ...data,
         activeIdx: common_vendor.unref(activeIdx),
-        exerciseIdx: common_vendor.unref(activeIdx)
+        exerciseIdx: common_vendor.unref(exerciseIdx)
       });
       common_vendor.index.navigateTo({
         url: "../result/result"
@@ -303,8 +303,9 @@ const _sfc_main = {
         }),
         K: common_vendor.o(calculate),
         L: common_vendor.p({
-          customClass: "button",
-          color: "linear-gradient(to right, #4bb0ff, #6149f6)"
+          color: "linear-gradient(to right, #4bb0ff, #6149f6)",
+          round: true,
+          customStyle: "width: 300px;"
         })
       });
     };

@@ -51,8 +51,9 @@
 				<van-radio :name="3">增肌</van-radio>
 			</van-radio-group>
 		</van-cell>
+
 		<view class="button-wrapper">
-			<van-button custom-class="button" @tap="calculate" color="linear-gradient(to right, #4bb0ff, #6149f6)">
+			<van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" round custom-style="width: 300px;" @click="calculate">
 				点击计算
 			</van-button>
 		</view>
@@ -260,7 +261,7 @@
 		store.setBodyInfos({
 			...data,
 			activeIdx: unref(activeIdx),
-			exerciseIdx: unref(activeIdx)
+			exerciseIdx: unref(exerciseIdx)
 		})
 		uni.navigateTo({
 			url: '../result/result'
@@ -361,15 +362,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 80%;
 
-		.button {
-			width: 100% !important;
-		}
-
-		.van-button {
-			width: 100% !important;
-		}
 	}
 
 	.Cal-tip {

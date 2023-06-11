@@ -49,19 +49,20 @@ const _sfc_main = {
       utils_utils.msg.loading();
       if (common_vendor.lodashExports.isEmpty(store.vacation)) {
         const data = await api_juhe.getVacationList();
+        data == null ? void 0 : data.list.forEach((item) => {
+          var _a;
+          map.set(item.holiday, item.name);
+          item.vacation = item.vacation ? (_a = item.vacation) == null ? void 0 : _a.split(
+            "|"
+          ) : [];
+          item.vacation.forEach((it) => {
+            map.set(it, "假期");
+          });
+        });
+        list.value = data.list;
         store.setVacation(data.list);
       }
       list.value = store.vacation;
-      list.value.forEach((item) => {
-        var _a;
-        map.set(item.holiday, item.name);
-        item.vacation = item.vacation ? (_a = item.vacation) == null ? void 0 : _a.split(
-          "|"
-        ) : [];
-        item.vacation.forEach((it) => {
-          map.set(it, "假期");
-        });
-      });
       utils_utils.msg.hide();
     });
     return (_ctx, _cache) => {
