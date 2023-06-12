@@ -34,7 +34,8 @@
 	} from 'vue';
 	import {
 		onLoad,
-		onShow
+		onShow,
+		onShareAppMessage
 	} from '@dcloudio/uni-app'
 
 	const navTo = type => {
@@ -48,6 +49,17 @@
 			})
 		}
 	}
+	onShareAppMessage((res) => {
+		if (res.from === 'button') { // 来自页面内分享按钮
+			console.log(res.target)
+		}
+		return {
+			title: '好用的工具',
+			imageUrl: '/static/1234.jpg',
+			path: '/pages/navigation/navigation',
+			desc: '可以进行假期查询，性格测试等等'
+		}
+	})
 </script>
 
 <style scoped lang="scss">

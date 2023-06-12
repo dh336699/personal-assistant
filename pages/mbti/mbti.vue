@@ -9,9 +9,12 @@
 			<van-radio :name="item.type2">{{item.answer2}}</van-radio>
 		</van-radio-group>
 		<view class="Mbti__btns">
-			<van-button class="btn" round type="primary" v-show="showPrew" @click="handlePrev"><van-icon name="arrow-left" />上一题</van-button>
-			<van-button class="btn" round type="primary" @click="handleNext" v-show="showNext">下一题<van-icon name="arrow" /></van-button>
-			<van-button class="btn" round color="linear-gradient(to right, #4bb0ff, #6149f6)" v-show="showSubmit" @click="handleSubmit">提交</van-button>
+			<van-button class="btn" round type="primary" v-show="showPrew" @click="handlePrev"><van-icon
+					name="arrow-left" />上一题</van-button>
+			<van-button class="btn" round type="primary" @click="handleNext" v-show="showNext">下一题<van-icon
+					name="arrow" /></van-button>
+			<van-button class="btn" round color="linear-gradient(to right, #4bb0ff, #6149f6)" v-show="showSubmit"
+				@click="handleSubmit">提交</van-button>
 		</view>
 	</view>
 	<view class="Answer" v-else-if="answers">
@@ -41,8 +44,10 @@
 		</view>
 
 		<view class="Answer__btns">
-			<van-button class="btn" round type="primary" @click="handleReply"><van-icon name="replay" />重新答题</van-button>
-			<van-button class="btn" round type="primary" @click="handlePreview"><van-icon name="revoke" />查看答过的题</van-button>
+			<van-button class="btn" round type="primary" @click="handleReply"><van-icon
+					name="replay" />重新答题</van-button>
+			<van-button class="btn" round type="primary" @click="handlePreview"><van-icon
+					name="revoke" />查看答过的题</van-button>
 		</view>
 	</view>
 	<van-empty v-else description="暂无数据" />
@@ -57,7 +62,8 @@
 	} from 'vue';
 	import {
 		onLoad,
-		onShow
+		onShow,
+		onShareAppMessage
 	} from '@dcloudio/uni-app';
 	import {
 		useStore
@@ -106,7 +112,7 @@
 		if (unref(current) < unref(list).length - 1) {
 			setTimeout(() => {
 				current.value += 1
-			}, 300)
+			}, 200)
 		}
 	}
 
@@ -158,6 +164,19 @@
 			answers.value = store.mbtiAnswer
 		} else {
 			_initQuestion()
+		}
+
+	})
+
+	onShareAppMessage((res) => {
+		if (res.from === 'button') { // 来自页面内分享按钮
+			console.log(res.target)
+		}
+		return {
+			title: 'MBTI性格测试',
+			imageUrl: '/static/mbti.jpg',
+			path: '/pages/mbti/mbti',
+			desc: 'mbti,性格测试,提升职场能力,提高职场竞争力'
 		}
 	})
 </script>

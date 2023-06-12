@@ -16,7 +16,9 @@
             "autoclose" : true,
             "delay" : 0
         },
-        "modules" : {},
+        "modules" : {
+            "Share" : {}
+        },
         /* 模块配置 */
         "distribute" : {
             /* 应用发布信息 */
@@ -40,9 +42,24 @@
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ]
             },
-            "ios" : {},
+            "ios" : {
+                "capabilities" : {
+                    "entitlements" : {
+                        "com.apple.developer.associated-domains" : [
+                            "applinks:static-mp-4f0f8deb-9990-4f2c-8ad9-09194f5e9be2.next.bspapp.com"
+                        ]
+                    }
+                }
+            },
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "share" : {
+                    "weixin" : {
+                        "appid" : "wx12efa1e7d0e46238",
+                        "UniversalLinks" : "https://static-mp-4f0f8deb-9990-4f2c-8ad9-09194f5e9be2.next.bspapp.com/uni-universallinks/__UNI__83F6188/"
+                    }
+                }
+            }
         }
     },
     /* SDK配置 */
@@ -57,5 +74,6 @@
         },
         "usingComponents" : true
     },
-    "vueVersion" : "3"
+    "vueVersion" : "3",
+    "_spaceID" : "mp-4f0f8deb-9990-4f2c-8ad9-09194f5e9be2"
 }

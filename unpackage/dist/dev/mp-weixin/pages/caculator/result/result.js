@@ -7,6 +7,7 @@ const _sfc_main = {
   __name: "result",
   setup(__props) {
     const bodyInfo = common_vendor.reactive({});
+    const bmi = common_vendor.ref("");
     const metabolicRate = common_vendor.ref(0);
     const metabolicCalories = common_vendor.ref(0);
     const carbon = common_vendor.ref(0);
@@ -102,19 +103,21 @@ const _sfc_main = {
           bodyInfo[key] = bodyInfos[key];
         }
         metabolicCal();
+        bmi.value = common_vendor.lodashExports.round(bodyInfo.weight / Math.pow(bodyInfo.height / 100, 2), 2);
       }
     };
     common_vendor.onLoad(() => _init());
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.t(metabolicRate.value),
-        b: common_vendor.t(metabolicCalories.value),
-        c: common_vendor.t(carbon.value),
-        d: common_vendor.t(protein.value),
-        e: common_vendor.t(fat.value)
+        a: common_vendor.t(bmi.value),
+        b: common_vendor.t(metabolicRate.value),
+        c: common_vendor.t(metabolicCalories.value),
+        d: common_vendor.t(carbon.value),
+        e: common_vendor.t(protein.value),
+        f: common_vendor.t(fat.value)
       };
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-dcee2c36"], ["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/caculator/result/result.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-dcee2c36"], ["__file", "D:/scan/personal-assistant/pages/caculator/result/result.vue"]]);
 wx.createPage(MiniProgramPage);

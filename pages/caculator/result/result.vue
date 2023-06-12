@@ -1,6 +1,10 @@
 <template>
 	<view class="Result">
 		<view class="Result-item">
+			<text>BMI</text>
+			<text>{{bmi}}</text>
+		</view>
+		<view class="Result-item">
 			<text>基础代谢率</text>
 			<text>{{metabolicRate}}</text>
 		</view>
@@ -37,7 +41,11 @@
 	import {
 		useStore
 	} from '@/store'
+	import {
+		round
+	} from 'lodash';
 	const bodyInfo = reactive({})
+	const bmi = ref('')
 	const metabolicRate = ref(0)
 	const metabolicCalories = ref(0)
 	const carbon = ref(0)
@@ -137,6 +145,7 @@
 				bodyInfo[key] = bodyInfos[key]
 			}
 			metabolicCal();
+			bmi.value = round(bodyInfo.weight / Math.pow((bodyInfo.height / 100), 2), 2)
 		}
 	}
 

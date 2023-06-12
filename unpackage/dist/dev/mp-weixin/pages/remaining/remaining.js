@@ -45,25 +45,34 @@ const _sfc_main = {
       }
       return day;
     };
-    common_vendor.onLoad(async () => {
+    common_vendor.onShow(async () => {
       utils_utils.msg.loading();
       if (common_vendor.lodashExports.isEmpty(store.vacation)) {
         const data = await api_juhe.getVacationList();
-        data == null ? void 0 : data.list.forEach((item) => {
-          var _a;
-          map.set(item.holiday, item.name);
-          item.vacation = item.vacation ? (_a = item.vacation) == null ? void 0 : _a.split(
-            "|"
-          ) : [];
-          item.vacation.forEach((it) => {
-            map.set(it, "假期");
-          });
-        });
-        list.value = data.list;
         store.setVacation(data.list);
       }
-      list.value = store.vacation;
+      const vacations = common_vendor.lodashExports.cloneDeep(store.vacation);
+      list.value = vacations.map((item) => {
+        var _a;
+        map.set(item.holiday, item.name);
+        item.vacation = item.vacation ? (_a = item.vacation) == null ? void 0 : _a.split("|") : [];
+        item.vacation.forEach((it) => {
+          map.set(it, "假期");
+        });
+        return item;
+      });
       utils_utils.msg.hide();
+    });
+    common_vendor.onShareAppMessage((res) => {
+      if (res.from === "button") {
+        console.log(res.target);
+      }
+      return {
+        title: "假期查询",
+        imageUrl: "/static/remaining.png",
+        path: "/pages/remaining/remaining",
+        desc: "假期查询，假期安排，请假助手"
+      };
     });
     return (_ctx, _cache) => {
       return common_vendor.e({
@@ -72,7 +81,7 @@ const _sfc_main = {
             a: common_vendor.t(item.tip),
             b: common_vendor.f(item.vacation, (it, k1, i1) => {
               return {
-                a: "5fd878ec-2-" + i0 + "-" + i1 + "," + ("5fd878ec-1-" + i0),
+                a: "4a7bc74a-2-" + i0 + "-" + i1 + "," + ("4a7bc74a-1-" + i0),
                 b: common_vendor.p({
                   text: it,
                   size: "small",
@@ -83,7 +92,7 @@ const _sfc_main = {
             }),
             c: common_vendor.t(item.rest),
             d: item.name,
-            e: "5fd878ec-1-" + i0 + ",5fd878ec-0",
+            e: "4a7bc74a-1-" + i0 + ",4a7bc74a-0",
             f: common_vendor.p({
               title: item.name + " " + item.holiday,
               name: item.holiday
@@ -111,5 +120,6 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/remaining/remaining.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/remaining/remaining.vue"]]);
+_sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

@@ -22,6 +22,17 @@ const _sfc_main = {
         });
       }
     };
+    common_vendor.onShareAppMessage((res) => {
+      if (res.from === "button") {
+        console.log(res.target);
+      }
+      return {
+        title: "好用的工具",
+        imageUrl: "/static/1234.jpg",
+        path: "/pages/navigation/navigation",
+        desc: "可以进行假期查询，性格测试等等"
+      };
+    });
     return (_ctx, _cache) => {
       return {
         a: common_vendor.o(($event) => navTo("remaining")),
@@ -52,5 +63,6 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/navigation/navigation.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/navigation/navigation.vue"]]);
+_sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

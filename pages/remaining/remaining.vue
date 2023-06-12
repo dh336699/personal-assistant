@@ -1,9 +1,11 @@
 <template>
 	<view>
 		<van-collapse :value="activeNames" @change="e => activeNames = e.detail">
-			<van-collapse-item v-for="item in list" :title="item.name + ' ' + item.holiday" :name="item.holiday" :key="item.name">
+			<van-collapse-item v-for="item in list" :title="item.name + ' ' + item.holiday" :name="item.holiday"
+				:key="item.name">
 				<p>注意：{{ item.tip }}</p>
-				<div class="holiday">假日：<p v-for="it in item.vacation" :key="it" style="margin-right: 4px;margin-bottom: 4px;white-space: nowrap;">
+				<div class="holiday">假日：<p v-for="it in item.vacation" :key="it"
+						style="margin-right: 4px;margin-bottom: 4px;white-space: nowrap;">
 						<uni-tag :text="it" size='small' type="primary" />
 					</p>
 				</div>
@@ -26,7 +28,8 @@
 	} from 'vue';
 	import {
 		onLoad,
-		onShow
+		onShow,
+		onShareAppMessage
 	} from '@dcloudio/uni-app';
 	import * as Api from '@/api/juhe'
 	import {
@@ -34,7 +37,8 @@
 	} from '@/store'
 	import {
 		includes,
-		isEmpty
+		isEmpty,
+		cloneDeep
 	} from 'lodash';
 	import dayjs from 'dayjs';
 	import {
@@ -67,23 +71,34 @@
 		// }
 		return day;
 	}
-	onLoad(async () => {
+	onShow(async () => {
 		msg.loading()
 		if (isEmpty(store.vacation)) {
 			const data = await Api.getVacationList()
-			data?.list.forEach(item => {
-				map.set(item.holiday, item.name)
-				item.vacation = (item.vacation) ? item.vacation?.split(
-					'|') : []
-				item.vacation.forEach(it => {
-					map.set(it, '假期')
-				})
-			})
-			list.value = data.list
 			store.setVacation(data.list)
 		}
-		list.value = store.vacation
+		const vacations = cloneDeep(store.vacation)
+		list.value = vacations.map(item => {
+			map.set(item.holiday, item.name)
+			item.vacation = item.vacation ? item.vacation?.split('|') : []
+			item.vacation.forEach(it => {
+				map.set(it, '假期')
+			})
+			return item
+		})
 		msg.hide()
+	})
+
+	onShareAppMessage((res) => {
+		if (res.from === 'button') { // 来自页面内分享按钮
+			console.log(res.target)
+		}
+		return {
+			title: '假期查询',
+			imageUrl: '/static/remaining.png',
+			path: '/pages/remaining/remaining',
+			desc: '假期查询，假期安排，请假助手'
+		}
 	})
 </script>
 

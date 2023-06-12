@@ -47,7 +47,7 @@ const _sfc_main = {
       if (common_vendor.unref(current) < common_vendor.unref(list).length - 1) {
         setTimeout(() => {
           current.value += 1;
-        }, 300);
+        }, 200);
       }
     };
     const handleReply = () => {
@@ -95,6 +95,17 @@ const _sfc_main = {
       } else {
         _initQuestion();
       }
+    });
+    common_vendor.onShareAppMessage((res) => {
+      if (res.from === "button") {
+        console.log(res.target);
+      }
+      return {
+        title: "MBTI性格测试",
+        imageUrl: "/static/mbti.jpg",
+        path: "/pages/mbti/mbti",
+        desc: "mbti,性格测试,提升职场能力,提高职场竞争力"
+      };
     });
     return (_ctx, _cache) => {
       return common_vendor.e({
@@ -172,5 +183,6 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/mbti/mbti.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/mbti/mbti.vue"]]);
+_sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);
