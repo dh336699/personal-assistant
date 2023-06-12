@@ -63,7 +63,7 @@
 	import {
 		onLoad,
 		onShow,
-		onShareAppMessage
+		caloriesCal
 	} from '@dcloudio/uni-app';
 	import {
 		useStore
@@ -168,7 +168,7 @@
 
 	})
 
-	onShareAppMessage((res) => {
+	caloriesCal((res) => {
 		if (res.from === 'button') { // 来自页面内分享按钮
 			console.log(res.target)
 		}
