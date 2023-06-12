@@ -7,7 +7,8 @@ const useStore = common_vendor.defineStore("userStore", {
     flower: utils_cache_index.getFlower() || {},
     mbti: utils_cache_index.getMbti() || [],
     mbtiAnswer: utils_cache_index.getMbtiAnswer() || {},
-    bodyInfos: utils_cache_index.getBodyInfo() || {}
+    bodyInfos: utils_cache_index.getBodyInfo() || {},
+    goldBrand: utils_cache_index.getGoldBrand() || {}
   }),
   actions: {
     setVacation(vacation) {
@@ -29,6 +30,10 @@ const useStore = common_vendor.defineStore("userStore", {
     setBodyInfos(bodyInfos) {
       this.bodyInfos = bodyInfos;
       utils_cache_index.setBodyInfo(bodyInfos);
+    },
+    setGoldBrand(brandList) {
+      this.goldBrand = brandList;
+      utils_cache_index.setGoldBrand(brandList);
     }
   }
 });

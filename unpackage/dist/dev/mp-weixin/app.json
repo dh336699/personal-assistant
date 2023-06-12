@@ -5,7 +5,10 @@
     "pages/flower/flower",
     "pages/mbti/mbti",
     "pages/caculator/cal/cal",
-    "pages/caculator/result/result"
+    "pages/caculator/result/result",
+    "pages/brand/brand",
+    "pages/brand/price",
+    "pages/birthday/birthday"
   ],
   "usingComponents": {
     "van-icon": "/wxcomponents/@vant/weapp/icon/index",

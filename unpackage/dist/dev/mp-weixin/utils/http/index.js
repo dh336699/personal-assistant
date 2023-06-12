@@ -66,10 +66,12 @@ const transform = {
       code,
       result,
       msg,
-      status
+      status,
+      showapi_res_code,
+      showapi_res_body,
+      error_code
     } = data;
-    console.log(data, "data");
-    const hasSuccess = code === 200 || status === 0;
+    const hasSuccess = code === 200 || status === 0 || showapi_res_code === 0 || error_code === 0;
     if (hasSuccess) {
       if (modal) {
         if (modal.type === "toast") {
@@ -84,7 +86,7 @@ const transform = {
           });
         }
       }
-      return result;
+      return result || (showapi_res_body == null ? void 0 : showapi_res_body.data) || showapi_res_body;
     }
     let timeoutMsg = "";
     switch (code) {
@@ -132,7 +134,7 @@ function createHttp(opt) {
     withToken: true
   }, opt));
 }
-createHttp();
+const defHttp = createHttp();
 createHttp({
   apiUrl: "http://api.moonapi.com"
 });
@@ -142,5 +144,10 @@ const tianHttp = createHttp({
 const jisuHttp = createHttp({
   apiUrl: "https://api.jisuapi.com"
 });
+const wanweiHttp = createHttp({
+  apiUrl: "https://route.showapi.com"
+});
+exports.defHttp = defHttp;
 exports.jisuHttp = jisuHttp;
 exports.tianHttp = tianHttp;
+exports.wanweiHttp = wanweiHttp;

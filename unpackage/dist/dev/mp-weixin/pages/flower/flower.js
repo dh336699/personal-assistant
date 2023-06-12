@@ -28,16 +28,23 @@ const _sfc_main = {
     const store = store_index.useStore();
     const title = common_vendor.computed(() => common_vendor.unref(flowerDesc).cnflower + " " + common_vendor.unref(flowerDesc).enflower);
     const onChange = common_vendor.lodashExports.debounce(async (e) => {
-      utils_utils.msg.loading();
-      const name = e.detail;
-      if (store.flower[name]) {
-        return store.flower[name];
+      try {
+        utils_utils.msg.loading();
+        let name = e.detail;
+        flowerName.value = name;
+        if (store.flower[name]) {
+          flowerDesc.value = store.flower[name];
+          utils_utils.msg.hide();
+          return;
+        }
+        flowerDesc.value = await api_juhe.getFlower(name);
+        store.setFlower({
+          [name]: common_vendor.unref(flowerDesc)
+        });
+        utils_utils.msg.hide();
+      } catch (error) {
+        utils_utils.msg.hide();
       }
-      flowerDesc.value = await api_juhe.getFlower(name);
-      store.setFlower({
-        [name]: common_vendor.unref(flowerDesc)
-      });
-      utils_utils.msg.hide();
     }, 1e3);
     return (_ctx, _cache) => {
       return common_vendor.e({

@@ -15,7 +15,8 @@ export const useStore = defineStore('userStore', {
 		flower: cache.getFlower() || {},
 		mbti: cache.getMbti() || [],
 		mbtiAnswer: cache.getMbtiAnswer() || {},
-		bodyInfos: cache.getBodyInfo() || {}
+		bodyInfos: cache.getBodyInfo() || {},
+		goldBrand: cache.getGoldBrand() || {}
 	}),
 	actions: {
 		setVacation(vacation) {
@@ -37,6 +38,10 @@ export const useStore = defineStore('userStore', {
 		setBodyInfos(bodyInfos) {
 			this.bodyInfos = bodyInfos
 			cache.setBodyInfo(bodyInfos)
+		},
+		setGoldBrand(brandList) {
+			this.goldBrand = brandList;
+			cache.setGoldBrand(brandList)
 		}
 	}
 })

@@ -4,7 +4,8 @@ import {
 	FLOWER,
 	MBTI,
 	MBTI_ANSWER,
-	BODYINFO
+	BODYINFO,
+	GOLD_BRAND
 } from '@/enum/cacheEnum'
 
 export const getUserInfo = () => getCache(USERINFO)
@@ -30,6 +31,10 @@ export const setMbtiAnswer = (value) => setCache(MBTI_ANSWER, value)
 export const getBodyInfo = () => getCache(BODYINFO)
 
 export const setBodyInfo = (value) => setCache(BODYINFO, value)
+
+export const getGoldBrand = () => getCache(GOLD_BRAND)
+
+export const setGoldBrand = (value) => setCache(GOLD_BRAND, value)
 
 
 export const getCache = (key) => uni.getStorageSync(key)

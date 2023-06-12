@@ -41,16 +41,25 @@
 	const title = computed(() => unref(flowerDesc).cnflower + ' ' + unref(flowerDesc).enflower)
 
 	const onChange = debounce(async e => {
-		msg.loading()
-		const name = e.detail
-		if (store.flower[name]) {
-			return store.flower[name]
+		try {
+			msg.loading()
+			let name = e.detail
+			flowerName.value = name
+			// name = !name?.includes('花') ? name + '花' : name
+			if (store.flower[name]) {
+				flowerDesc.value = store.flower[name]
+				msg.hide()
+				return
+			}
+
+			flowerDesc.value = await getFlower(name)
+			store.setFlower({
+				[name]: unref(flowerDesc)
+			})
+			msg.hide()
+		} catch (error) {
+			msg.hide()
 		}
-		flowerDesc.value = await getFlower(name)
-		store.setFlower({
-			[name]: unref(flowerDesc)
-		})
-		msg.hide()
 	}, 1000)
 </script>
 

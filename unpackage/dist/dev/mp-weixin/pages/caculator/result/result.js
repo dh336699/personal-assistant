@@ -1,8 +1,19 @@
 "use strict";
 const common_vendor = require("../../../common/vendor.js");
+const api_juhe = require("../../../api/juhe.js");
 const store_index = require("../../../store/index.js");
-require("../../../utils/cache/index.js");
+require("../../../utils/http/index.js");
+require("../../../utils/auth/index.js");
 require("../../../enum/cacheEnum.js");
+require("../../../utils/http/http.js");
+require("../../../config/index.js");
+require("../../../hooks/useEnv.js");
+require("../../../utils/http/helper.js");
+require("../../../utils/cache/index.js");
+if (!Array) {
+  const _component_van_cell = common_vendor.resolveComponent("van-cell");
+  _component_van_cell();
+}
 const _sfc_main = {
   __name: "result",
   setup(__props) {
@@ -94,7 +105,7 @@ const _sfc_main = {
       metabolicRate.value = metabolicRate.value.toFixed(2);
       caloriesCal();
     };
-    const _init = () => {
+    const _init = async () => {
       if (store.bodyInfos) {
         const {
           bodyInfos
@@ -103,18 +114,41 @@ const _sfc_main = {
           bodyInfo[key] = bodyInfos[key];
         }
         metabolicCal();
-        bmi.value = common_vendor.lodashExports.round(bodyInfo.weight / Math.pow(bodyInfo.height / 100, 2), 2);
+        bmi.value = await api_juhe.getBmi({
+          height: bodyInfo.height,
+          weight: bodyInfo.weight,
+          sex: bodyInfo.sex
+        });
       }
     };
     common_vendor.onLoad(() => _init());
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.t(bmi.value),
-        b: common_vendor.t(metabolicRate.value),
-        c: common_vendor.t(metabolicCalories.value),
-        d: common_vendor.t(carbon.value),
-        e: common_vendor.t(protein.value),
-        f: common_vendor.t(fat.value)
+        a: common_vendor.p({
+          title: "BMI",
+          value: bmi.value.bmi,
+          label: bmi.value.tip + "标准体重: " + bmi.value.normweight
+        }),
+        b: common_vendor.p({
+          title: "基础代谢率",
+          value: metabolicRate.value
+        }),
+        c: common_vendor.p({
+          title: "代谢热量",
+          value: metabolicCalories.value + "kcal"
+        }),
+        d: common_vendor.p({
+          title: "建议碳水摄入",
+          value: carbon.value + "g"
+        }),
+        e: common_vendor.p({
+          title: "建议蛋白质摄入",
+          value: protein.value + "g"
+        }),
+        f: common_vendor.p({
+          title: "建议脂肪摄入",
+          value: fat.value + "g"
+        })
       };
     };
   }

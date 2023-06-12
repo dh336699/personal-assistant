@@ -48,7 +48,7 @@ const _sfc_main = {
     common_vendor.onShow(async () => {
       utils_utils.msg.loading();
       if (common_vendor.lodashExports.isEmpty(store.vacation)) {
-        const data = await api_juhe.getVacationList();
+        const data = await api_juhe.getVacationList(common_vendor.dayjs().year());
         store.setVacation(data.list);
       }
       const vacations = common_vendor.lodashExports.cloneDeep(store.vacation);

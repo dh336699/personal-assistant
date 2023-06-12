@@ -8,6 +8,9 @@ if (!Math) {
   "./pages/mbti/mbti.js";
   "./pages/caculator/cal/cal.js";
   "./pages/caculator/result/result.js";
+  "./pages/brand/brand.js";
+  "./pages/brand/price.js";
+  "./pages/birthday/birthday.js";
 }
 const _sfc_main = {
   onLaunch: function() {

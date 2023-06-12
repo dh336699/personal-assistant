@@ -1,29 +1,11 @@
 <template>
 	<view class="Result">
-		<view class="Result-item">
-			<text>BMI</text>
-			<text>{{bmi}}</text>
-		</view>
-		<view class="Result-item">
-			<text>基础代谢率</text>
-			<text>{{metabolicRate}}</text>
-		</view>
-		<view class="Result-item">
-			<text>代谢热量</text>
-			<text>{{metabolicCalories}} kcal</text>
-		</view>
-		<view class="Result-item">
-			<text>建议碳水摄入</text>
-			<text>{{carbon}} g</text>
-		</view>
-		<view class="Result-item">
-			<text>建议蛋白质摄入</text>
-			<text>{{protein}} g</text>
-		</view>
-		<view class="Result-item">
-			<text>建议脂肪摄入</text>
-			<text>{{fat}} g</text>
-		</view>
+		<van-cell title="BMI" :value="bmi.bmi" :label="bmi.tip +'标准体重: ' + bmi.normweight" />
+		<van-cell title="基础代谢率" :value="metabolicRate" />
+		<van-cell title="代谢热量" :value="metabolicCalories + 'kcal'" />
+		<van-cell title="建议碳水摄入" :value="carbon + 'g'" />
+		<van-cell title="建议蛋白质摄入" :value="protein + 'g'" />
+		<van-cell title="建议脂肪摄入" :value="fat + 'g'" />
 	</view>
 
 </template>
@@ -34,6 +16,9 @@
 		ref,
 		unref
 	} from 'vue';
+	import {
+		getBmi
+	} from '@/api/juhe'
 	import {
 		onLoad,
 		onShow
@@ -136,7 +121,7 @@
 
 		caloriesCal();
 	}
-	const _init = () => {
+	const _init = async () => {
 		if (store.bodyInfos) {
 			const {
 				bodyInfos
@@ -145,7 +130,12 @@
 				bodyInfo[key] = bodyInfos[key]
 			}
 			metabolicCal();
-			bmi.value = round(bodyInfo.weight / Math.pow((bodyInfo.height / 100), 2), 2)
+			bmi.value = await getBmi({
+				height: bodyInfo.height,
+				weight: bodyInfo.weight,
+				sex: bodyInfo.sex
+			})
+			// bmi.value = round(bodyInfo.weight / Math.pow((bodyInfo.height / 100), 2), 2)
 		}
 	}
 

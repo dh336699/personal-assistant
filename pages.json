@@ -30,14 +30,35 @@
 	}, {
 		"path": "pages/caculator/cal/cal",
 		"style": {
-			"navigationBarTitleText": "",
+			"navigationBarTitleText": "营养热量计算器",
 			"enablePullDownRefresh": false
 		}
 
 	}, {
 		"path": "pages/caculator/result/result",
 		"style": {
-			"navigationBarTitleText": "",
+			"navigationBarTitleText": "营养热量计算结果",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/brand/brand",
+		"style": {
+			"navigationBarTitleText": "金店品牌",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/brand/price",
+		"style": {
+			"navigationBarTitleText": "最新价格",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/birthday/birthday",
+		"style": {
+			"navigationBarTitleText": "生辰信息",
 			"enablePullDownRefresh": false
 		}
 

@@ -84,11 +84,13 @@ const transform = {
 			code,
 			result,
 			msg,
-			status
+			status,
+			showapi_res_code,
+			showapi_res_body,
+			error_code
 		} = data;
-		console.log(data, 'data');
 		// 这里逻辑可以根据项目进行修改
-		const hasSuccess = (code === 200) || (status === 0);
+		const hasSuccess = (code === 200) || (status === 0) || showapi_res_code === 0 || error_code === 0;
 		if (hasSuccess) {
 
 			if (modal) {
@@ -104,7 +106,7 @@ const transform = {
 					})
 				}
 			}
-			return result;
+			return result || showapi_res_body?.data || showapi_res_body;
 		}
 
 		// 在此处根据自己项目的实际情况对不同的code执行不同的操作
@@ -167,6 +169,10 @@ export const tianHttp = createHttp({
 	apiUrl: 'https://apis.tianapi.com'
 })
 
-export const jisuHttp = createHttp(({
+export const jisuHttp = createHttp({
 	apiUrl: 'https://api.jisuapi.com'
-}))
+})
+
+export const wanweiHttp = createHttp({
+	apiUrl: 'https://route.showapi.com'
+})

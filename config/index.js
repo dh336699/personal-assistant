@@ -6,7 +6,7 @@ const {
 } = useEnv()
 export const globSetting = {
 	// apiUrl: 'https://www.aiww.site',
-	apiUrl: isDev() ? 'http://v.juhe.cn' : 'http://v.juhe.cn',
+	apiUrl: isDev() ? 'https://apis.juhe.cn' : 'https://apis.juhe.cn',
 	// urlPrefix: '/api/v1',
 	goodsImagePrefix: isDev() ? '/dev/goods' : '/prod/goods',
 	avatarPrefix: isDev() ? '/dev/avatar' : '/prod/avatar'

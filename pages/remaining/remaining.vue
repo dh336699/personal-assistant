@@ -74,7 +74,7 @@
 	onShow(async () => {
 		msg.loading()
 		if (isEmpty(store.vacation)) {
-			const data = await Api.getVacationList()
+			const data = await Api.getVacationList(dayjs().year())
 			store.setVacation(data.list)
 		}
 		const vacations = cloneDeep(store.vacation)

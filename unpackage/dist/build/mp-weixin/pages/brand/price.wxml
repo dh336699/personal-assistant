@@ -1,0 +1,1 @@
+<view class="GoldPrice"><uni-card wx:if="{{a}}" u-s="{{['d']}}" u-i="2f824bff-0" bind:__l="__l" u-p="{{e}}"><van-cell wx:if="{{r0}}" u-t="m" u-i="2f824bff-1,2f824bff-0" bind:__l="__l" u-p="{{b}}"/><van-cell wx:if="{{c}}" u-t="m" u-i="2f824bff-2,2f824bff-0" bind:__l="__l" u-p="{{d}}"/></uni-card><van-empty wx:else u-t="m" u-i="2f824bff-3" bind:__l="__l" u-p="{{f||''}}"/></view>

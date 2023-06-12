@@ -2,7 +2,8 @@ import {
 	defHttp,
 	moonHttp,
 	tianHttp,
-	jisuHttp
+	jisuHttp,
+	wanweiHttp
 } from "@/utils/http";
 
 const Api = {
@@ -11,7 +12,11 @@ const Api = {
 	jiejiari: '/jiejiari/index',
 	flower: '/huayu/index',
 	mbti: '/character/questions',
-	answer: '/character/answer'
+	answer: '/character/answer',
+	bmi: '/bmi/index',
+	birthday: '/birthEight/query',
+	goldShop: '/2145-1',
+	goldPirce: '/2145-2'
 }
 
 // export const getVacationList = (year) => moonHttp.get({
@@ -25,11 +30,11 @@ const Api = {
 // 	}
 // })
 
-export const getVacationList = () => tianHttp.get({
+export const getVacationList = (date) => tianHttp.get({
 	url: Api.jiejiari,
 	data: {
 		key: '335bb78fcbc378fed2ab2f5c79a77045',
-		date: '2023',
+		date,
 		type: 1
 	}
 })
@@ -54,5 +59,33 @@ export const getAnswers = answer => jisuHttp.get({
 	data: {
 		appkey: 'a4140573932ba35b',
 		answer
+	}
+})
+
+export const getBmi = (data) => tianHttp.get({
+	url: Api.bmi,
+	data: {
+		key: '335bb78fcbc378fed2ab2f5c79a77045',
+		...data
+	}
+})
+
+export const getGoldShop = () => wanweiHttp.get({
+	url: Api.goldShop,
+	data: {
+		showapi_appid: '1436491',
+		showapi_sign: '7c05472b11404229b03529bba9e1d6c6'
+	}
+})
+
+export const getGoldPrice = (id) => wanweiHttp.post({
+	url: `${Api.goldPirce}?showapi_appid=1436491&showapi_sign=7c05472b11404229b03529bba9e1d6c6&id=${id}`,
+})
+
+export const getBirth = data => defHttp.get({
+	url: Api.birthday,
+	data: {
+		key: '97d8da898a1b6c458eca5c860e3019e2',
+		...data
 	}
 })

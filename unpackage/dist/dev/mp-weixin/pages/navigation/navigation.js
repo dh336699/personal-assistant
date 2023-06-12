@@ -40,23 +40,29 @@ const _sfc_main = {
           title: "当年假期",
           extra: "跳转"
         }),
-        c: common_vendor.p({
-          title: "朋友圈文案",
-          extra: "跳转"
-        }),
-        d: common_vendor.o(($event) => navTo("flower")),
-        e: common_vendor.p({
-          title: "花语箴言",
-          extra: "跳转"
-        }),
-        f: common_vendor.o(($event) => navTo("mbti")),
-        g: common_vendor.p({
+        c: common_vendor.o(($event) => navTo("mbti")),
+        d: common_vendor.p({
           title: "MBTI性格测试",
           extra: "跳转"
         }),
-        h: common_vendor.o(($event) => navTo("cal")),
-        i: common_vendor.p({
+        e: common_vendor.o(($event) => navTo("cal")),
+        f: common_vendor.p({
           title: "热量营养计算",
+          extra: "跳转"
+        }),
+        g: common_vendor.o(($event) => navTo("birthday")),
+        h: common_vendor.p({
+          title: "生辰助手",
+          extra: "跳转"
+        }),
+        i: common_vendor.o(($event) => navTo("brand")),
+        j: common_vendor.p({
+          title: "当日金价",
+          extra: "跳转"
+        }),
+        k: common_vendor.o(($event) => navTo("flower")),
+        l: common_vendor.p({
+          title: "花语箴言",
           extra: "跳转"
         })
       };

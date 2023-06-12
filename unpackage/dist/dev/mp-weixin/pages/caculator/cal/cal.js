@@ -154,6 +154,7 @@ const _sfc_main = {
       const value = e.detail.value || e.detail;
       const val = Number(value);
       bodyInfo[type].value = val;
+      bodyInfo[type].error = "";
     };
     const handlePicker = (e, type) => {
       if (type === "activeIdx") {

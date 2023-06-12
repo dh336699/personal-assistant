@@ -1,1 +1,1 @@
-"use strict";const e=require("../hooks/useEnv.js"),{isDev:o}=e.useEnv(),r={apiUrl:(o(),"http://v.juhe.cn"),goodsImagePrefix:o()?"/dev/goods":"/prod/goods",avatarPrefix:o()?"/dev/avatar":"/prod/avatar"};exports.globSetting=r;
+"use strict";const e=require("../hooks/useEnv.js"),{isDev:s}=e.useEnv(),o={apiUrl:(s(),"https://apis.juhe.cn"),goodsImagePrefix:s()?"/dev/goods":"/prod/goods",avatarPrefix:s()?"/dev/avatar":"/prod/avatar"};exports.globSetting=o;
