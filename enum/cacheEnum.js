@@ -13,3 +13,5 @@ export const MBTI_ANSWER = 'MBTI_ANSWER__'
 export const BODYINFO = 'BODYINFO__'
 
 export const GOLD_BRAND = 'GOLD_BRAND__'
+
+export const BIRTHDAY = "BIRTHDAY__"

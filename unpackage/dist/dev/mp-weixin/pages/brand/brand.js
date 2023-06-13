@@ -36,7 +36,7 @@ const _sfc_main = {
         a: common_vendor.f(list.value, (item, k0, i0) => {
           return {
             a: item._id,
-            b: "7f49973d-1-" + i0 + ",7f49973d-0",
+            b: "812bd664-1-" + i0 + ",812bd664-0",
             c: common_vendor.p({
               title: item.brand,
               value: "点击查看最新价格",
@@ -49,5 +49,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/brand/brand.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/brand/brand.vue"]]);
 wx.createPage(MiniProgramPage);

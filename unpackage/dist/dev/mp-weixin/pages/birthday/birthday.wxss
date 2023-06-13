@@ -1,5 +1,9 @@
 /* 水平间距 */
 /* 水平间距 */
+.Birthday.data-v-39b6ffde {
+  height: 100vh;
+  background-color: #fff;
+}
 .example-body.data-v-39b6ffde {
   background-color: #fff;
   padding: 10px;

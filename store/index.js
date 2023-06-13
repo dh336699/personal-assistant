@@ -16,7 +16,8 @@ export const useStore = defineStore('userStore', {
 		mbti: cache.getMbti() || [],
 		mbtiAnswer: cache.getMbtiAnswer() || {},
 		bodyInfos: cache.getBodyInfo() || {},
-		goldBrand: cache.getGoldBrand() || {}
+		goldBrand: cache.getGoldBrand() || {},
+		birthday: cache.getBirthday() || {}
 	}),
 	actions: {
 		setVacation(vacation) {
@@ -42,6 +43,10 @@ export const useStore = defineStore('userStore', {
 		setGoldBrand(brandList) {
 			this.goldBrand = brandList;
 			cache.setGoldBrand(brandList)
+		},
+		setBirthday(birthday, info) {
+			this.birthday[birthday] = info
+			cache.setBirthday(this.birthday)
 		}
 	}
 })

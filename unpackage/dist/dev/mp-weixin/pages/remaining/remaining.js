@@ -81,7 +81,7 @@ const _sfc_main = {
             a: common_vendor.t(item.tip),
             b: common_vendor.f(item.vacation, (it, k1, i1) => {
               return {
-                a: "4a7bc74a-2-" + i0 + "-" + i1 + "," + ("4a7bc74a-1-" + i0),
+                a: "5fd878ec-2-" + i0 + "-" + i1 + "," + ("5fd878ec-1-" + i0),
                 b: common_vendor.p({
                   text: it,
                   size: "small",
@@ -92,7 +92,7 @@ const _sfc_main = {
             }),
             c: common_vendor.t(item.rest),
             d: item.name,
-            e: "4a7bc74a-1-" + i0 + ",4a7bc74a-0",
+            e: "5fd878ec-1-" + i0 + ",5fd878ec-0",
             f: common_vendor.p({
               title: item.name + " " + item.holiday,
               name: item.holiday
@@ -120,6 +120,6 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/scan/personal-assistant/pages/remaining/remaining.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/remaining/remaining.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

@@ -8,7 +8,8 @@ const useStore = common_vendor.defineStore("userStore", {
     mbti: utils_cache_index.getMbti() || [],
     mbtiAnswer: utils_cache_index.getMbtiAnswer() || {},
     bodyInfos: utils_cache_index.getBodyInfo() || {},
-    goldBrand: utils_cache_index.getGoldBrand() || {}
+    goldBrand: utils_cache_index.getGoldBrand() || {},
+    birthday: utils_cache_index.getBirthday() || {}
   }),
   actions: {
     setVacation(vacation) {
@@ -34,6 +35,10 @@ const useStore = common_vendor.defineStore("userStore", {
     setGoldBrand(brandList) {
       this.goldBrand = brandList;
       utils_cache_index.setGoldBrand(brandList);
+    },
+    setBirthday(birthday, info) {
+      this.birthday[birthday] = info;
+      utils_cache_index.setBirthday(this.birthday);
     }
   }
 });

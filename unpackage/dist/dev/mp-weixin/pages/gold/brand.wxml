@@ -1,1 +1,0 @@
-<van-cell-group wx:if="{{r0}}" u-t="m" u-i="9f075c6c-0" bind:__l="__l"><van-cell wx:for="{{a}}" wx:for-item="item" wx:key="a" u-t="m" u-i="{{item.b}}" bind:__l="__l" u-p="{{item.c}}"/></van-cell-group>

@@ -153,5 +153,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-dcee2c36"], ["__file", "D:/scan/personal-assistant/pages/caculator/result/result.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-dcee2c36"], ["__file", "/Users/demon/work-space/mini-program/personal-assistant/pages/caculator/result/result.vue"]]);
 wx.createPage(MiniProgramPage);
