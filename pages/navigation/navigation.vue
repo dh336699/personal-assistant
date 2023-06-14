@@ -23,6 +23,8 @@
 		<uni-card title="花语箴言" extra="跳转" @click="navTo('flower')">
 			<text class="uni-body">语是人们在一定的历史条件下逐渐约定俗成的，一种用花来表达人的某种感情与愿望的语言，具有一定的社会交流价值</text>
 		</uni-card>
+
+		<!-- <ad adpid="1111111111"></ad> -->
 	</view>
 </template>
 

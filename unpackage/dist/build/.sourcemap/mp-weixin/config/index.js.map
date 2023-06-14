@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sources":["../../../../../config/index.js"],"sourcesContent":null,"names":["isDev","useEnv","globSetting","apiUrl","goodsImagePrefix","avatarPrefix"],"mappings":"oDAGMA,MACLA,GACGC,WACSC,EAAc,CAE1BC,QAAQH,IAAU,wBAElBI,iBAAkBJ,IAAU,aAAe,cAC3CK,aAAcL,IAAU,cAAgB"}

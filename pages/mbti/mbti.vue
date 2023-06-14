@@ -89,7 +89,7 @@
 
 	const showNext = computed(() => unref(current) < unref(list).length - 1)
 
-	const showSubmit = computed(() => unref(current) === unref(list).length - 1)
+	const showSubmit = computed(() => unref(current) === unref(list).length - 1 && unref(item).answers)
 
 	const showPrew = computed(() => unref(current) !== 0)
 
@@ -144,6 +144,8 @@
 				item.answers = ''
 				return item
 			});
+			answers.value = undefined
+			store.setMbtiAnswer(undefined)
 			store.setMbti(unref(list))
 		} else {
 			list.value = store.mbti

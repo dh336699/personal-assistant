@@ -1,5 +1,0 @@
-/* 水平间距 */
-/* 水平间距 */
-.GoldPrice .van-cell {
-  padding: 0 !important;
-}

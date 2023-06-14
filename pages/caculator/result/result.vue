@@ -29,6 +29,10 @@
 	import {
 		round
 	} from 'lodash';
+	import {
+		msg
+	} from '@/utils/utils'
+
 	const bodyInfo = reactive({})
 	const bmi = ref('')
 	const metabolicRate = ref(0)
@@ -123,6 +127,7 @@
 	}
 	const _init = async () => {
 		if (store.bodyInfos) {
+			msg.loading()
 			const {
 				bodyInfos
 			} = store;
@@ -135,6 +140,7 @@
 				weight: bodyInfo.weight,
 				sex: bodyInfo.sex
 			})
+			msg.hide()
 			// bmi.value = round(bodyInfo.weight / Math.pow((bodyInfo.height / 100), 2), 2)
 		}
 	}
