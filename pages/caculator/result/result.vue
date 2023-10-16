@@ -21,7 +21,8 @@
 	} from '@/api/juhe'
 	import {
 		onLoad,
-		onShow
+		onShow,
+		onShareAppMessage
 	} from '@dcloudio/uni-app';
 	import {
 		useStore
@@ -144,6 +145,18 @@
 			// bmi.value = round(bodyInfo.weight / Math.pow((bodyInfo.height / 100), 2), 2)
 		}
 	}
+
+	onShareAppMessage((res) => {
+		if (res.from === 'button') { // 来自页面内分享按钮
+			console.log(res.target)
+		}
+		return {
+			title: '热量营养计算',
+			imageUrl: '/static/sport.jpeg',
+			path: '/pages/caculator/cal/cal',
+			desc: '计算BMI, 热量消耗, 代谢以及一天内所需营养成分'
+		}
+	})
 
 	onLoad(() => _init())
 </script>

@@ -308,7 +308,7 @@
 		return {
 			title: '热量营养计算',
 			imageUrl: '/static/sport.jpeg',
-			path: '/pages/cal/cal',
+			path: '/pages/caculator/cal/cal',
 			desc: '计算BMI, 热量消耗, 代谢以及一天内所需营养成分'
 		}
 	})
