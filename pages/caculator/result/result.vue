@@ -49,16 +49,17 @@
 			exercise,
 			exerciseIdx
 		} = bodyInfo
-		carbon.value = (weight * exercise) || 0;
-		protein.value = exerciseIdx < 6 ? 1.5 * weight : exerciseIdx >= 6 && exerciseIdx <= 7 ? 1.8 * weight : 2.1 *
-			weight + unref(carbon)
-		fat.value = ((unref(metabolicCalories) - 4 * (unref(protein) + unref(carbon))) / 9).toFixed(2)
+		carbon.value = round(weight * exercise, 2) || 0;
+		protein.value = round(exerciseIdx < 6 ? 1.5 * weight : exerciseIdx >= 6 && exerciseIdx <= 7 ? 1.8 * weight :
+			2.1 *
+			weight + unref(carbon), 2)
+		fat.value = round((unref(metabolicCalories) - 4 * (unref(protein) + unref(carbon))) / 9, 2)
 	}
 	const caloriesCal = () => {
 		const {
 			active
 		} = bodyInfo
-		metabolicCalories.value = (unref(metabolicRate) * active).toFixed(2);
+		metabolicCalories.value = round(unref(metabolicRate) * active, 2)
 		nutritionCal();
 	}
 
@@ -122,7 +123,7 @@
 			case 3:
 				metabolicRate.value = g ? Math.max(e, g, t, a) : Math.max(e, t, a);
 		}
-		metabolicRate.value = metabolicRate.value.toFixed(2)
+		metabolicRate.value = round(metabolicRate.value, 2)
 
 		caloriesCal();
 	}

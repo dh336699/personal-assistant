@@ -91,6 +91,9 @@
 	import {
 		useStore
 	} from '@/store'
+	import {
+		msg
+	} from '../../../utils/utils';
 
 	const store = useStore()
 	const showActive = ref(false)
@@ -235,6 +238,9 @@
 			const val = value ? Number(value) : undefined
 			bodyInfo[type].value = val
 			bodyInfo[type].error = ''
+		} else {
+			bodyInfo[type].value = value
+			bodyInfo[type].error = ''
 		}
 	}
 	const handlePicker = (e, type) => {
@@ -255,7 +261,7 @@
 			data.error = ''
 			if (data.required && !data.value) {
 				data.error = `${data.label}为必填项哦`
-			} else if (data.validate) {
+			} else if (data.required && data.validate) {
 				data.error = data.validate(data.value)
 			}
 
@@ -274,6 +280,9 @@
 
 	const calculate = async () => {
 		const data = await validate()
+		if (data.goal === 1 && !data.bodyFat) {
+			return msg.toast('目标为减脂时，体脂为必填项')
+		}
 		store.setBodyInfos({
 			...data,
 			activeIdx: unref(activeIdx),
